@@ -1,0 +1,14 @@
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  # Refer https://dart-lang.github.io/linter/lints/
+  rules:
+    avoid_print: true
+    must_be_immutable: false
+    prefer_single_quotes: true
+    empty_catches: false
+    camel_case_types: true
+    await_only_futures: true
+    always_use_package_imports: true
+    always_declare_return_types: true
+    avoid_multiple_declarations_per_line: true
