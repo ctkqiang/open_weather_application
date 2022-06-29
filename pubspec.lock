@@ -64,13 +64,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.5"
-  dotenv:
-    dependency: "direct main"
-    description:
-      name: dotenv
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "4.0.1"
   easy_localization:
     dependency: "direct main"
     description:
@@ -118,6 +111,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "8.0.1"
+  flutter_dotenv:
+    dependency: "direct main"
+    description:
+      name: flutter_dotenv
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.0.2"
   flutter_lints:
     dependency: "direct dev"
     description:

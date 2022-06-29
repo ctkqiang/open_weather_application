@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:open_weather_application/constant/open_weather_themes.dart';
 import 'package:open_weather_application/model/open_weather.dart';
 import 'package:open_weather_application/open_weather_runner.dart';
@@ -14,11 +15,20 @@ Future<void> main() async {
     /// Initialise [Easy Localisation] service
     await EasyLocalization.ensureInitialized();
 
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarIconBrightness: Brightness.dark,
+        statusBarBrightness: Brightness.dark,
+        statusBarColor: OpenWeatherThemes.transparent,
+        systemNavigationBarColor: OpenWeatherThemes.blackAccent,
+      ),
+    );
+
     runApp(
       EasyLocalization(
         saveLocale: true,
         useOnlyLangCode: true,
-        supportedLocales: const [Locale('en'), Locale('zh')],
+        supportedLocales: const [Locale('en')],
         assetLoader: const CodegenLoader(),
         fallbackLocale: const Locale('en'),
         path: 'assets/translations',
