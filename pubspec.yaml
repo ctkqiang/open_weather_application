@@ -12,9 +12,10 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  flutter_dotenv: ^5.0.2
   geolocator: ^7.2.0+1
   flutter_bloc: ^8.0.1
+  easy_localization: ^3.0.1
+  dotenv: ^4.0.1
 
 dev_dependencies:
   flutter_test:
@@ -23,3 +24,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  generate: true
+  
+  assets:
+    - assets/images/app.png

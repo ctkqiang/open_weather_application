@@ -1,13 +1,45 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:flutter/material.dart';
+import 'dart:async';
 
-class OpenWeatherSplashScreen extends StatelessWidget {
+import 'package:flutter/material.dart';
+import 'package:open_weather_application/constant/open_weather_themes.dart';
+import 'package:open_weather_application/views/open_weather_main.dart';
+
+class OpenWeatherSplashScreen extends StatefulWidget {
   int? duration;
   OpenWeatherSplashScreen({Key? key, this.duration}) : super(key: key);
 
   @override
+  State<OpenWeatherSplashScreen> createState() =>
+      _OpenWeatherSplashScreenState();
+}
+
+class _OpenWeatherSplashScreenState extends State<OpenWeatherSplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+
+    Timer(Duration(seconds: widget.duration!), () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const OpenWeatherMain()),
+      );
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: null,
+      backgroundColor: OpenWeatherThemes.whiteAccent,
+      body: Center(
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width / 1.5,
+          height: MediaQuery.of(context).size.height / 1.5,
+          child: Image.asset('assets/images/app.png'),
+        ),
+      ),
+    );
   }
 }
