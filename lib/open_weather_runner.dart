@@ -26,7 +26,7 @@ class _OpenWeatherRunnerState extends State<OpenWeatherRunner> {
           secondary: OpenWeatherThemes.primaryAccent,
         ),
       ),
-      title: LocaleKeys.app_name.tr(),
+      title: 'Open Weather Demo App',
       home: OpenWeatherSplashScreen(duration: 2),
     );
   }

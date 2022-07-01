@@ -25,4 +25,8 @@ clean:
 
 connect: 
 	- adb tcpip 5555
-	- adb connect 192.168.85.61
+	- adb connect 192.168.14.170
+
+set_icon:
+	- flutter pub get
+	- flutter pub run flutter_launcher_icons:main

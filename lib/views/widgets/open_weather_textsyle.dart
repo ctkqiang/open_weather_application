@@ -5,7 +5,10 @@ import 'package:flutter/material.dart';
 class OpenWeatherTextsyle {
   OpenWeatherTextsyle._();
 
-  static TextStyle defaultTextStyle({Color? color}) {
-    return TextStyle(color: color!, fontSize: 18);
+  static TextStyle defaultTextStyle({
+    @required Color? color,
+    @required double? size,
+  }) {
+    return TextStyle(color: color!, fontSize: size!);
   }
 }

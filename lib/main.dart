@@ -4,8 +4,10 @@ import 'package:flutter/services.dart';
 import 'package:open_weather_application/constant/open_weather_themes.dart';
 import 'package:open_weather_application/model/open_weather.dart';
 import 'package:open_weather_application/open_weather_runner.dart';
+import 'package:open_weather_application/providers/weather.dart';
 import 'package:open_weather_application/translations/codegen_loader.g.dart';
 import 'package:open_weather_application/views/widgets/open_weather_textsyle.dart';
+import 'package:provider/provider.dart';
 
 @OpenWeather('main', 'This runs the programme')
 Future<void> main() async {
@@ -25,20 +27,26 @@ Future<void> main() async {
     );
 
     runApp(
-      EasyLocalization(
-        saveLocale: true,
-        useOnlyLangCode: true,
-        supportedLocales: const [Locale('en')],
-        assetLoader: const CodegenLoader(),
-        fallbackLocale: const Locale('en'),
-        path: 'assets/translations',
-        child: OpenWeatherRunner(isdebugMode: false),
+      MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (_) => Weather()),
+        ],
+        child: EasyLocalization(
+          saveLocale: true,
+          useOnlyLangCode: true,
+          supportedLocales: const [Locale('en')],
+          assetLoader: const CodegenLoader(),
+          fallbackLocale: const Locale('en'),
+          path: 'assets/translations',
+          child: OpenWeatherRunner(isdebugMode: false),
+        ),
       ),
     );
   } catch (_) {
     /// Onstart [Error] Handling
     ErrorWidget.builder = (details) {
       return MaterialApp(
+        title: 'Open Weather Demo App [ERROR_PAGE]',
         home: Scaffold(
           backgroundColor: OpenWeatherThemes.errorAccent,
           body: Center(
@@ -46,6 +54,7 @@ Future<void> main() async {
               details.exception.toString(),
               style: OpenWeatherTextsyle.defaultTextStyle(
                 color: OpenWeatherThemes.whiteAccent,
+                size: 18,
               ),
             ),
           ),
