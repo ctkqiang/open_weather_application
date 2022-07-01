@@ -32,7 +32,7 @@ class _OpenWeatherSplashScreenState extends State<OpenWeatherSplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: null,
-      backgroundColor: OpenWeatherThemes.blackAccent,
+      backgroundColor: OpenWeatherThemes.whiteAccent,
       body: Center(
         child: SizedBox(
           width: MediaQuery.of(context).size.width / 2,
